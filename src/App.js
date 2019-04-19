@@ -1,24 +1,51 @@
 import React, { Component } from 'react';
 import './App.css';
-import ProductItem from './ProductItem';
-import AddProduct from './AddProduct';
+import ProductItem from './components/ProductItem';
+import AddProduct from './components/AddProduct';
 
-const products = [
+const accounts = [
   {
-    name: 'samsung',
-    price: 1000
+    accountHolderName: 'cx100',
+    accountNumber: 101,
+    swiftCode: 202,
+    address: 'jalan merbabu',
+    city: 'surabaya',
+    country: 'indonesia',
+    currency: 'idr',
+    type: 1, // individual | company
+    firstname: 'indro',
+    lastname: 'allezz',
+    company: ''
   },
   {
-    name: 'iphone',
-    price: 2000
+    accountHolderName: 'dm34',
+    accountNumber: 212,
+    swiftCode: 219,
+    address: 'jalan terang bulan',
+    city: 'malang',
+    country: 'indonesia',
+    currency: 'idr',
+    type: 2, // individual | company
+    firstname: '',
+    lastname: '',
+    company: 'jet corp'
   },
   {
-    name: 'oppo',
-    price: 1200
-  }
+    accountHolderName: 'zx01',
+    accountNumber: 444,
+    swiftCode: 145,
+    address: 'jalan akal sehat',
+    city: 'jember',
+    country: 'indonesia',
+    currency: 'idr',
+    type: 2, // individual | company
+    firstname: '',
+    lastname: '',
+    company: 'zx corp'
+  },
 ]
 
-localStorage.setItem('products', JSON.stringify(products))
+localStorage.setItem('accounts', JSON.stringify(accounts))
 
 class App extends Component {
   
@@ -26,69 +53,61 @@ class App extends Component {
     super(props);
 
     this.state = {
-      products: JSON.parse(localStorage.getItem('products'))
+      accounts: JSON.parse(localStorage.getItem('accounts'))
     };
 
-    this.onDelete = this.onDelete.bind(this)
-    this.onAdd = this.onAdd.bind(this)
-    this.onEditSubmit = this.onEditSubmit.bind(this)
   }
 
   componentWillMount() {
-    const products = this.getProducts()
+    const accounts = this.getAccounts()
 
-    this.setState({ products });
+    this.setState({ accounts });
   }
 
-  getProducts() {
-    return this.state.products
+  getAccounts() {
+    return this.state.accounts
   }
 
-  onDelete (name) {
-    const products = this.getProducts()
-    const filteredProducts = products.filter(product => {
-      return product.name !== name
+  onDelete = (accNumber) => {
+    const accounts = this.getAccounts()
+    const filteredAccounts = accounts.filter(account => {
+      return account.accountNumber !== accNumber
     })
 
-    this.setState({ products: filteredProducts })
+    this.setState({ accounts: filteredAccounts })
   }
 
-  onAdd (name, price) {
-    const products = this.getProducts()
+  onAdd = (data) => {
+    const accounts = this.getAccounts()
 
-    products.push({
-      name,
-      price
-    })
+    accounts.push(data)
 
-    this.setState({ products })
+    this.setState({ accounts })
   }
 
-  onEditSubmit(name, price, originalName) {
-    let products = this.getProducts()
+  onEditSubmit = (data, originalAccNum) => {
+    let accounts = this.getAccounts()
 
-    products = products.map(product => {
-      if (product.name === originalName) {
-        product.name = name
-        product.price = price
+    accounts = accounts.map(account => {
+      if (account.accountNumber === originalAccNum) {
+        account = data
       }
-      return product
+      return account
     })
 
-    this.setState({ products })
+    this.setState({ accounts })
   }
 
   render() {
     return (
       <div className="App">
-        <h1>Products Manager</h1>
+        <h1>Bank Accounts Manager</h1>
 
         <AddProduct onAdd={this.onAdd} />
-
         {
-          this.state.products.map(product => {
+          this.state.accounts.map((account, idx) => {
             return (
-              <ProductItem key={product.name} {...product} 
+              <ProductItem key={idx} data={account} 
                 onDelete={this.onDelete} 
                 onEditSubmit={this.onEditSubmit}
               />
