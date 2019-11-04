@@ -1,4 +1,11 @@
 .App { text-align: center; }
-.header { font-weight: bold; background-color: #f90 }
+.header { font-weight: bold; background-color: #fff; }
 .divx { width: 49%; height: 20px; position:relative; }
-.divx div, .item { width: 33%; float: left; height: auto; border: solid 1px #ccc; }
+
+/* header row */
+.divx div { width: 33%; float: left; height: auto; border-bottom: solid 1px #ccc; } 
+.left { background-color: #19a64a; color: #fff; }
+.right { background-color: #c57901; color: #fff; }
+
+/* cell content per row */
+.item { width: 33%; float: left; height: auto; border-bottom: solid 1px #ccc; } 

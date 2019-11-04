@@ -1,4 +1,4 @@
-# React crypto tables, react table dengan background grafik dinamis mengikuti nilai aset crypto.
+# React crypto currency tables dan testing menggunakan Enzyme
 
 ![Gambar react crypto tables](react-crypto-table.jpeg)
 

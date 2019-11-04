@@ -1,6 +1,7 @@
-import React, { Component } from "react";
+import React, { Component } from "react"
 
 import CustomHtml from './customHtml'
+import HeaderTable from './headerTable'
 
 let datas = [
   {
@@ -30,6 +31,21 @@ let datas = [
   },
   {
     amount: 500.2,
+    total: 0,
+    price: 6.269
+  },
+  {
+    amount: 23.4,
+    total: 0,
+    price: 6.269
+  },
+  {
+    amount: 20.3,
+    total: 0,
+    price: 6.269
+  },
+  {
+    amount: 3.6,
     total: 0,
     price: 6.269
   }
@@ -70,11 +86,9 @@ class TableA extends Component {
 
     return (
       <div>
-        <div className="divx header">
-          <div>Total</div>
-          <div>Quantity</div>
-          <div>Price</div>
-        </div>
+
+        <HeaderTable float={this.props.float} />
+
         {
           this.state.tableA.map((item, index) => {
             return (

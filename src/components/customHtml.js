@@ -3,8 +3,8 @@ import React from 'react'
 const CustomHtml = (props) => {
 
   const renderFields = () => {
+    
     let name = props.index +''+ props.name
-    console.log('name ' ,name)
 
     return (
       <div>
@@ -15,13 +15,13 @@ const CustomHtml = (props) => {
               __html: [
                 ' .divx'+ name + ' {',
                 ' width: 49%;',
-                ' height: 20px;',
+                ' height: 25px;',
                 ' position:relative;',
                 ' }',
                 '.divx'+ name +':after {',
                 '  content: "";',
                 '  position: absolute;',
-                '  background-color:rgba(0, 0, 0, 0.5);',
+                '  background-color:rgba(182, 244, 204, 0.6);',
                 '  top: 0;', 
                 '  right: 0;',
                 '  bottom: 0; ',
@@ -42,13 +42,13 @@ const CustomHtml = (props) => {
               __html: [
                 ' .divx'+ name +' {',
                 ' width: 49%;',
-                ' height: 20px;',
+                ' height: 25px;',
                 ' position:relative;',
                 ' }',
                 '.divx'+ name +':after {',
                 '  content: "";',
                 '  position: absolute;',
-                '  background-color:rgba(0, 0, 0, 0.5);',
+                '  background-color:rgba(197, 121, 1, 0.6);',
                 '  top: 0;', 
                 '  left: 0;',
                 '  bottom: 0; ',
