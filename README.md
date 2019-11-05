@@ -1,4 +1,4 @@
-# React crypto currency tables dan testing menggunakan Enzyme
+# React crypto currency tables dan testing menggunakan JEST
 
 ![Gambar react crypto tables](react-crypto-table.jpeg)
 

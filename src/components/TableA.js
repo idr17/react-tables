@@ -85,7 +85,7 @@ class TableA extends Component {
   render() {
 
     return (
-      <div>
+      <div className="eachTable">
 
         <HeaderTable float={this.props.float} />
 
